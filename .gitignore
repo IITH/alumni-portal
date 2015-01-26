@@ -2,3 +2,5 @@
 # to ignore. You can specify a regular expression too.
 
 .venv/*
+*.pyc
+db.sqlite3
