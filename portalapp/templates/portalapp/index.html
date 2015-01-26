@@ -1,0 +1,16 @@
+Username, password combinations from database:
+{% if user_list %}
+    <ul>
+        {% for user in user_list %}
+        <li> {{ user.username }} | {{ user.password }} </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+List ends here<br>
+
+<form action="/" method="post">
+    {% csrf_token %}
+    Username: <input type="text" name="username"><br>
+    Password: <input type="text" name="password"><br>
+    <input type="submit" value="login">
+</form>
