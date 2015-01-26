@@ -35,3 +35,18 @@ installation was successful, you'll see a version number (e.g. `1.7.3`) as the
 output.
 
     python -c "import django; print(django.get_version())"
+
+Running the Django app
+----------------------
+
+Create SQLite database, which is just a file `db.sqlite3` being used as
+database for this app.
+
+    python manage.py migrate
+
+And then run the Django app
+
+    python manage.py runserver
+
+Now you can go to your browser and type `http://127.0.0.1:8000/` and you can
+see the Django app in action!
