@@ -1,3 +1,4 @@
+#! /bin/bash -ux
 download(){
     if [ ! -f bootstrap-3.3.2-dist.zip ]
     then
@@ -7,9 +8,9 @@ download(){
 }
 
 if [ \( -d "static/css" \) -a \( -d "static/js" \) -a \( -d "static/fonts" \) ]
-then 
+then
     echo -e "All the css, js and font directory are present.\nExiting without doing nothing."
-else 
+else
     echo -e "js or css or fonts directory not present.\n Using bootstrap to populate."
     download
     if [ ! -d "static" ]
