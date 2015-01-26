@@ -1,0 +1,4 @@
+# Gitignore is a file where you can specify files or directories you want git
+# to ignore. You can specify a regular expression too.
+
+.venv/*
