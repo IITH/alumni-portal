@@ -30,7 +30,7 @@ Install the dependencies using:
 
     pip install -r requirements.txt
 
-**Note** Above command installs Django also.
+**Note:** Above command installs Django also.
 
 Running the Django app
 ----------------------
