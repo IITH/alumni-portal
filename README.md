@@ -30,6 +30,11 @@ Install `Django` package
 
     pip install Django
 
+Alternatively, you can also install Django from `requirements.txt` file, which
+contains all the packages which our current project (`alumni-portal`) requires:
+
+    pip install -r requirements.txt
+
 Run this command to see if you have successfully installed `Django`. If your
 installation was successful, you'll see a version number (e.g. `1.7.3`) as the
 output.
