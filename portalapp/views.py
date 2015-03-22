@@ -56,7 +56,7 @@ def create_userinfo(request):
 
 class UserInfoUpdate(UpdateView):
     model = UserInfo
-    template_name_suffix = '_update_form'
+    template_name_suffix = '_form'
     form_class = getUserInfo
 
     def get_success_url(self):
