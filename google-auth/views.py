@@ -18,4 +18,3 @@ def email_allowed(backend, details, response, *args, **kwargs):
     at_position = email.find('@')
     if not email[at_position+1:] == 'iith.ac.in':
 	    raise AuthForbidden(backend)
-

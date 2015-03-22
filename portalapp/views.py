@@ -69,3 +69,4 @@ def view_userinfo(request):
     return render(request, 'portalapp/userinfo.html', {
             'userinfo': userinfo,
             })
+

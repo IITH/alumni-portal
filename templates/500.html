@@ -1,0 +1,28 @@
+{% extends 'google-auth/base.html' %}
+
+{% block main %}
+ <div>
+ <h1>Gmail Auth</h1>
+
+ <p>
+   <ul>
+   {% if user and not user.is_anonymous %}
+     <li>
+       <a>Hello {{ user.get_full_name|default:user.username }}!</a>
+     </li>
+     <li>
+       <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+     </li>
+     <li>
+       <a href="{% url 'portalapp:create_userinfo' %}">Click here to create your profile</a>
+     </li>
+   {% else %}
+   <h2> Sorry we could not register that email , please use your @iith.ac.in email address.</h2>
+     <li>
+       <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a>
+     </li>
+   {% endif %}
+   </ul>
+ </p>
+</div>
+{% endblock %}
