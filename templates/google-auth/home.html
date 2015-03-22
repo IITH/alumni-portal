@@ -13,6 +13,9 @@
      <li>
        <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
      </li>
+     <li>
+       <a href="{% url 'portalapp:create_userinfo' %}">Click here to create your profile</a>
+     </li>
    {% else %}
      <li>
        <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a>
