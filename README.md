@@ -26,15 +26,11 @@ local virtual environment.
     source .venv/bin/activate
 
 
-Install `Django` package
+Install the dependencies using:
 
-    pip install Django
+    pip install -r requirements.txt
 
-Run this command to see if you have successfully installed `Django`. If your
-installation was successful, you'll see a version number (e.g. `1.7.3`) as the
-output.
-
-    python -c "import django; print(django.get_version())"
+**Note:** Above command installs Django also.
 
 Running the Django app
 ----------------------
