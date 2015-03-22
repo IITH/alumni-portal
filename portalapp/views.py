@@ -7,6 +7,9 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 import re
 from django.views.generic.edit import UpdateView
+from django.db.models import Q
+import json
+from django.db import transaction
 
 def index(request):
     if request.method == 'GET':
@@ -62,11 +65,33 @@ class UserInfoUpdate(UpdateView):
     def get_success_url(self):
         return reverse("portalapp:view_userinfo")
 
-
 def view_userinfo(request):
     user = request.user
     userinfo = get_object_or_404(UserInfo,user=user)
     return render(request, 'portalapp/userinfo.html', {
             'userinfo': userinfo,
             })
+
+@transaction.commit_on_success
+def search_name(request):
+    search_str=request.GET.get('q', '')
+    user_data=[]
+    #import pdb;pdb.set_trace();
+    search_terms= search_str.split()
+    if len(search_terms) == 1:
+        users = User.objects.filter(Q(first_name__contains=search_terms[0]) | Q(last_name__contains=search_terms[0]) )[:5]
+    elif len(search_terms) == 2:
+        users = User.objects.filter(Q(first_name__contains=search_terms[0]) | Q(last_name__contains=search_terms[1]) )[:5]
+    elif len(search_terms) > 2:
+        users = User.objects.filter(Q(first_name__contains=search_terms[0]) | Q(last_name__contains=search_terms[1]) )[:5]
+    else:
+        users = User.objects.filter(Q(first_name__contains=search_str) | Q(last_name__contains=search_str) )[:5]
+    for user in users:
+        user_data.append({'first_name':user.first_name, 'last_name':user.last_name, 'user_id':user.username})
+    #json_data=  json.dumps(json_data)
+    return HttpResponse(json.dumps(user_data), content_type="application/json")
+
+def search(request):
+    return render(request, 'portalapp/search.html', {})
+
 

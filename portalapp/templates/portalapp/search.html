@@ -1,0 +1,44 @@
+{% extends 'portalapp/base.html' %}
+
+{% block main %}
+ <div>
+ 
+
+ <div class="container">
+    <div class="col-md-offset-3 col-md-6">
+        <h1>Search users</h1>
+        <div id="remote">
+          <input class="typeahead" type="text" placeholder="Search by name">
+        </div>
+    </div>
+ 
+ </div>
+ 
+</div>
+<script>
+var bestPictures = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  prefetch: '../searchname?q=',
+  remote: "../searchname?q=%QUERY"
+});
+ 
+bestPictures.initialize();
+ 
+$('#remote .typeahead').typeahead(null, {
+  name: 'user-names',
+  displayKey: 'first_name',
+  templates: {
+    empty: [
+      '<div class="empty-message">',
+      'unable to find any person matching the query',
+      '</div>'
+    ].join('\n'),
+    {% verbatim %}
+    suggestion: Handlebars.compile('<p><strong> {{first_name}} {{last_name}}</strong> – {{user_id}}</p>')
+    {% endverbatim %}
+  },
+  source: bestPictures.ttAdapter()
+});
+</script>
+{% endblock %}
