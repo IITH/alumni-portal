@@ -51,12 +51,16 @@ Run google auth
 ---------------
 
 Google auth needs a google application to be created. The url has been given as 'iith-alumni.com' which has to be used to run the application, Edit the etc hosts in your system 
+
     vi /etc/hosts/
+
 and add the following line
+
     127.0.0.1       iith-alumni.com
 
 Populate data required for create userinfo
 ------------------------------------------
 
 The Departments and Degree can added to the database by running the following command
+
     python manage.py shell < portalapp/dml.py
