@@ -1,0 +1,18 @@
+{% extends 'portalapp/base.html' %}
+
+{% block main %}
+ <div>
+ <h1>Please fill your information</h1>
+
+ <p>
+   <form action='' method='post'>
+    {% csrf_token %}
+    {{form.errors}}
+    <table class="table">
+    {{form.as_table}}
+    </table>
+    <input type="submit" value="Submit" />
+   </form>
+ </p>
+</div>
+{% endblock %}
