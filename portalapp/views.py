@@ -76,7 +76,6 @@ def view_userinfo(request):
 def search_name(request):
     search_str=request.GET.get('q', '')
     user_data=[]
-    #import pdb;pdb.set_trace();
     search_terms= search_str.split()
     if len(search_terms) == 1:
         users = User.objects.filter(Q(first_name__contains=search_terms[0]) | Q(last_name__contains=search_terms[0]) )[:5]
@@ -88,7 +87,6 @@ def search_name(request):
         users = User.objects.filter(Q(first_name__contains=search_str) | Q(last_name__contains=search_str) )[:5]
     for user in users:
         user_data.append({'first_name':user.first_name, 'last_name':user.last_name, 'user_id':user.username})
-    #json_data=  json.dumps(json_data)
     return HttpResponse(json.dumps(user_data), content_type="application/json")
 
 def search(request):
