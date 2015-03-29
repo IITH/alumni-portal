@@ -17,8 +17,11 @@
        <a href="{% url 'portalapp:create_userinfo' %}">Click here to create your profile</a>
      </li>
      <li>
-      <a href="{% url 'portalapp:view_userinfo'  %}">Click here to View Profile</a>
-    </li>
+       <a href="{% url 'portalapp:view_userinfo'  %}">View your Profile</a>
+     </li>
+     <li>
+       <a href="{% url 'portalapp:search' %}">Search for alumni</a>
+     </li>
    {% else %}
      <li>
        <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a>
