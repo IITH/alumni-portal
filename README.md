@@ -61,6 +61,6 @@ and add the following line
 Populate data required for create userinfo
 ------------------------------------------
 
-The Departments and Degree can added to the database by running the following command
+The standard Departments and Degrees can added to the database by running the following command
 
     python manage.py shell < portalapp/dml.py

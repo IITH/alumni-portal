@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from portalapp.models import SampleUser,UserInfo, Department, Degree
 from portalapp.forms import getUserInfo
@@ -55,7 +55,7 @@ def create_userinfo(request):
             userinfo.user=user
             userinfo.status=1
             userinfo.save()
-        return HttpResponse("db update successful")
+        return HttpResponseRedirect(reverse("portalapp:view_userinfo"))
 
 class UserInfoUpdate(UpdateView):
     model = UserInfo
