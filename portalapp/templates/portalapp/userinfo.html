@@ -1,0 +1,54 @@
+{% extends 'portalapp/base.html' %}
+
+{% block main %}
+ <div>
+ <h1>Your information</h1>
+
+ <div class="col-md-offset-10 col-md-2">
+ 	<a href="{% url 'portalapp:update_userinfo' userinfo.id %}">Edit Profile</a>
+ </div>
+ <p>
+   
+   
+    <table class="table">
+	<tr>
+	<td>Email</td>
+	<td>{{user.email}}</td>
+    </tr>
+    <tr>
+    	<td>Department</td>
+    	<td>{{userinfo.department}}</td>
+    </tr>
+    <tr><td>Degree</td>
+    	<td>{{userinfo.degree}}</td>
+    </tr>
+    <tr><td>Roll no</td>
+    	<td>{{userinfo.roll_no}}</td>
+    </tr>
+    <tr><td>Year of admission</td>
+    	<td>{{userinfo.year_of_admission}}</td>
+    </tr>
+    <tr><td>Stream</td>
+    	<td>{{userinfo.stream}}</td>
+    </tr>
+    <tr><td>Company</td>
+    	<td>{{userinfo.company}}</td>
+    </tr>
+    <tr><td>Phone no.</td>
+    	<td>{{userinfo.phone_num}}</td>
+    </tr>
+    <tr><td>Personal Email id</td>
+    	<td>{{userinfo.email}}</td>
+    </tr>
+    <tr><td>City</td>
+    	<td>{{userinfo.city}}</td>
+    </tr>
+    <tr><td>Address</td>
+    	<td>{{userinfo.address}}</td>
+    </tr>
+    </table>
+    
+   
+ </p>
+</div>
+{% endblock %}

@@ -14,3 +14,11 @@ List ends here<br>
     Password: <input type="text" name="password"><br>
     <input type="submit" value="login">
 </form>
+
+<a href="{% url 'google-auth:home' %}">Try Oauth login</a>
+<br/>
+<a href="{% url 'portalapp:create_userinfo' %}">Create Profile</a>
+<br/>
+<a href="{% url 'portalapp:view_userinfo'  %}">View Profile</a>
+
+

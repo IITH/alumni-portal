@@ -2,7 +2,7 @@
 
 {% block main %}
  <div>
- <h1>Gmail Auth</h1>
+ <h2> Oops you landed up at the wrong address. Please go to the <a href="{% url 'portalapp:index' %}">homepage</a> to start over.</h2>
 
  <p>
    <ul>
@@ -17,6 +17,7 @@
        <a href="{% url 'portalapp:create_userinfo' %}">Click here to create your profile</a>
      </li>
    {% else %}
+   
      <li>
        <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a>
      </li>

@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -70,6 +70,19 @@ AUTHENTICATION_BACKENDS = (
    'django.contrib.auth.backends.ModelBackend',
 )
 
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'google-auth.views.email_allowed',  # Only IITh emails allowed
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
+)
+
 ROOT_URLCONF = 'portal.urls'
 
 WSGI_APPLICATION = 'portal.wsgi.application'
@@ -113,5 +126,7 @@ TEMPLATE_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = '/'
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '806044360050-t85dh7evo00u3rglp8vdqpjm6ohig6g4.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'kCl5omjKCD5PewVCP0ZCgjyU'
+#SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '806044360050-t85dh7evo00u3rglp8vdqpjm6ohig6g4.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY =  '1082770047767-4ed6lisv3un82udvvl4p7skmhh4s6b45.apps.googleusercontent.com'
+#SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'kCl5omjKCD5PewVCP0ZCgjyU'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='LPGA9CJFsQm6Ox-0EK7hLPFO'

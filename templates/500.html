@@ -17,6 +17,7 @@
        <a href="{% url 'portalapp:create_userinfo' %}">Click here to create your profile</a>
      </li>
    {% else %}
+   <h2> Sorry we could not register that email , please use your @iith.ac.in email address.</h2>
      <li>
        <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a>
      </li>

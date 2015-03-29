@@ -9,9 +9,9 @@ urlpatterns = patterns(
 
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^$', include('portalapp.urls')),
+    url(r'', include('portalapp.urls', namespace='portalapp')),
 
-    url(r'^auth/', include('google-auth.urls')),
+    url(r'^auth/', include('google-auth.urls', namespace='google-auth')),
 
     url('', include('social.apps.django_app.urls', namespace='social')),
 
