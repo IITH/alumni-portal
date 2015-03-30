@@ -52,7 +52,7 @@ Run google auth
 
 Google auth needs a google application to be created. The url has been given as 'iith-alumni.com' which has to be used to run the application, Edit the etc hosts in your system 
 
-    vi /etc/hosts/
+    sudo vi /etc/hosts
 
 and add the following line
 
