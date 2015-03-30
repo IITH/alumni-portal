@@ -3,10 +3,6 @@ IITH Alumni portal
 
 This project will host code for the IITH Alumni portal.
 
-GitHub Issues will be used to track all the new features to be developed, and
-also for bugs. More information will be added soon.
-
-
 Installation
 ------------
 
@@ -64,3 +60,12 @@ Populate data required for create userinfo
 The Departments and Degree can added to the database by running the following command
 
     python manage.py shell < portalapp/dml.py
+
+How to contribute
+-----------------
+GitHub Issues will be used to track all the new features to be developed, and
+also for bugs. If you want to contribute then fork the repo to your own github
+account and create a branch with your changes and then create a pull request.
+People who have push access to the repo, please don't push code directly to the
+repo. Follow the above procedure. It helps to have someone else look into your
+changes.
