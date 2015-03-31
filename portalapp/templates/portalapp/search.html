@@ -40,5 +40,10 @@ $('#remote .typeahead').typeahead(null, {
   },
   source: bestPictures.ttAdapter()
 });
+jQuery('#remote').on('typeahead:selected', function (e, datum) {
+    window.location.href = datum['profile_url'];
+}).on('typeahead:autocompleted', function (e, datum) {
+    window.location.href = datum['profile_url'];
+});
 </script>
 {% endblock %}

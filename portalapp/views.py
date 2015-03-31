@@ -72,6 +72,13 @@ def view_userinfo(request):
             'userinfo': userinfo,
             })
 
+def view_profile(request,user_id):
+    user = User.objects.get(id=user_id)
+    userinfo = get_object_or_404(UserInfo,user=user)
+    return render(request, 'portalapp/userinfo.html', {
+            'userinfo': userinfo,
+            })
+
 @transaction.commit_on_success
 def search_name(request):
     search_str=request.GET.get('q', '')
@@ -86,7 +93,8 @@ def search_name(request):
     else:
         users = User.objects.filter(Q(first_name__contains=search_str) | Q(last_name__contains=search_str) )[:5]
     for user in users:
-        user_data.append({'first_name':user.first_name, 'last_name':user.last_name, 'user_id':user.username})
+        url =  reverse('portalapp:view_profile', args=(user.id,) )
+        user_data.append({'first_name':user.first_name, 'last_name':user.last_name, 'user_id':user.username, 'profile_url': url })
     return HttpResponse(json.dumps(user_data), content_type="application/json")
 
 def search(request):
