@@ -54,8 +54,8 @@ and add the following line
 
     127.0.0.1       iith-alumni.com
 
-Populate data required for create userinfo
-------------------------------------------
+Insert data required for registration
+-------------------------------------
 
 The Departments and Degree can added to the database by running the following command
 
